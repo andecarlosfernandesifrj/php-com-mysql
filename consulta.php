@@ -6,7 +6,7 @@
     $resultado = mysqli_query($conexao, $sql);
     if (mysqli_num_rows($resultado) > 0) {
         while($registro = mysqli_fetch_assoc($resultado)) {
-            echo "Id: " . $registro["id"]. " - Nome: " . $registro["nome"]. " " . $registro["senha"]. " - Email: " . $registro["email"]. "<br>";
+            echo "<p style='background-color: lightgreen';>Id: " . $registro["id"]. " - Nome: " . $registro["nome"]. " " . $registro["senha"]. " - Email: " . $registro["email"]. "</p>";
         }
     } else {
         echo "Nenhum registro encontrado.";
@@ -37,7 +37,7 @@
     }
   
     echo "<br><b>Verificar se existe usuário='Carlos' com senha='123'e mostrar seu email. Caso não exista, mostrar uma mensagem.</b><br>";
-    $sql = "SELECT id, nome, senha, email FROM usuario where nome='Carlos' and senha='123'";
+    $sql = "SELECT email FROM usuario where nome='Carlos' and senha='123'";
     $resultado = mysqli_query($conexao, $sql);
     echo "<br>";
     if (mysqli_num_rows($resultado) > 0) {
