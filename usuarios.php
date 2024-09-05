@@ -89,6 +89,7 @@
                 include "conecta.php";
                 $sql = "SELECT id, nome, senha, email FROM usuario";
                 $resultado = mysqli_query($conexao, $sql);
+                // echo "numero de linhas: ". mysqli_num_rows($resultado);
                 if (mysqli_num_rows($resultado) > 0) {
                     while($registro = mysqli_fetch_assoc($resultado)) {
                         echo "<span> ID: </span>". $registro["id"];
@@ -96,6 +97,9 @@
                         echo "<span> E-mail: </span>". $registro["email"];
                         echo "<br>";
                     }
+                }
+                else{
+                    echo "Nenhum usuário encontrado!";
                 }
             ?>
             </p>
